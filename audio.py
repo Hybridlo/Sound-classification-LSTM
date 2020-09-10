@@ -1,11 +1,10 @@
 import numpy as np
 import librosa
-import time
 from functools import lru_cache
 
 @lru_cache(None)
 def get_mel_spec(filename):
-    sound, sr = librosa.load(filename, res_type='zero_order_hold')
+    sound, sr = librosa.load(filename)
     # sound, _ = librosa.effects.trim(sound)
 
     n_fft = 2048
