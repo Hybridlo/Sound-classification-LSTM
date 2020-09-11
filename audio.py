@@ -1,8 +1,10 @@
 import numpy as np
 import librosa
-from functools import lru_cache
+import percache
 
-@lru_cache(None)
+cache = percache.Cache('cache.cch')
+
+@cache
 def get_mel_spec(filename):
     sound, sr = librosa.load(filename)
     # sound, _ = librosa.effects.trim(sound)
